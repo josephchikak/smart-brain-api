@@ -11,13 +11,12 @@ const db = knex({
     client: 'pg',
     connection: {
       connectionString : process.env.DATABASE_URL,
-      ssl: true,
+      ssl: true
     }
   });
 
 const app = express();
  
-
 app.use(bodyParser.json());
 
 app.use(cors())
@@ -28,7 +27,7 @@ app.get('/', (req,res) =>{
 
 app.post('/signin', (req, res) =>{singin.handleSignin(req,res,db,bcrypt)})
 
-app.post('/register', (req,res) =>{register.handleRegister(req,res,db,bcrypt)})
+app.post('/register', (req, res) =>{register.handleRegister(req,res,db,bcrypt)})
 
 
 app.listen(process.env.PORT || 3001, ()=>{
