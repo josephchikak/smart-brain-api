@@ -21,7 +21,9 @@ const app = express();
  
 app.use(bodyParser.json());
 
-app.use(cors())
+app.use(cors({
+  origin: '*',
+}))
 
 app.get('/', (req,res) =>{
     res.send('working!')
@@ -33,5 +35,5 @@ app.post('/register', (req, res) =>{register.handleRegister(req,res,db,bcrypt)})
 
 
 app.listen(process.env.PORT || 3001, ()=>{
-    console.log(`app is running on port ${process.env.PORT}`)
+    console.log(`app is running on port ${process.env.PORT} || 3001`)
 })
