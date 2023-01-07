@@ -14,12 +14,14 @@ const handleSignin = (req,res,db,bcrypt) =>{
             res.json(user[0])
         })
         .catch(err => res.status(400).json('unable to get user'))
+        console.log('email/password does not exist')
       }else {
-        res.status(400).json('wrong credentials')
+        res.status(400).json('wrong credentials') 
       }
 
     })
     .catch(err => re.status(400).json('wrong credentials'))
+
 }
 
 module.exports = {
